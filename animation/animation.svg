@@ -1,0 +1,86 @@
+<svg width="400" height="100" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    svg { background: #000; }
+    .pixel-name { fill: #a21caf; } /* Roxo do nome */
+    /* 1. Animação do Pac-Man atravessando a tela */
+    @keyframes pacman-move {
+      0% { transform: translateX(-50px); }
+      100% { transform: translateX(450px); }}
+    /* 2. Animação da boca abrindo e fechando */
+    @keyframes mouth-eat {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(-45deg); }}
+    @keyframes mouth-eat-bottom {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(45deg); }}
+    /* 3. Animação de "sumir" quando comido */
+    @keyframes disappear {
+      0% { opacity: 1; }
+      100% { opacity: 0; }}
+    .pacman-container {
+      animation: pacman-move 5s linear infinite;}
+    .mouth-top { 
+        fill: #ff0; 
+        animation: mouth-eat 0.3s steps(2) infinite; 
+        transform-origin: 25px 25px;}
+    .mouth-bottom { 
+        fill: #ff0; 
+        animation: mouth-eat-bottom 0.3s steps(2) infinite; 
+        transform-origin: 25px 25px;}
+    /* Sincronização: Cada letra some no tempo que o Pac-Man passa */
+    /* Como o movimento leva 5s para 400px, calculamos o delay por posição */
+    .letter-L { animation: disappear 0.1s forwards; animation-delay: 0.8s; }
+    .letter-U { animation: disappear 0.1s forwards; animation-delay: 1.3s; }
+    .letter-C { animation: disappear 0.1s forwards; animation-delay: 1.8s; }
+    .letter-A { animation: disappear 0.1s forwards; animation-delay: 2.3s; }
+    .letter-S { animation: disappear 0.1s forwards; animation-delay: 2.8s; }
+    /* Faz o nome resetar junto com o Pac-Man (opcional, para o loop) */
+    .all-letters { animation: disappear 5s infinite; }
+  </style>
+  <g class="all-letters">
+      <g class="letter-L" transform="translate(40, 25) scale(1.2)">
+          <rect width="10" height="10" x="0" y="0" class="pixel-name" />
+          <rect width="10" height="10" x="0" y="10" class="pixel-name" />
+          <rect width="10" height="10" x="0" y="20" class="pixel-name" />
+          <rect width="10" height="10" x="0" y="30" class="pixel-name" />
+          <rect width="10" height="10" x="10" y="30" class="pixel-name" />
+          <rect width="10" height="10" x="20" y="30" class="pixel-name" /></g>
+      <g class="letter-U" transform="translate(90, 25) scale(1.2)">
+          <rect width="10" height="10" x="0" y="0" class="pixel-name" />
+          <rect width="10" height="10" x="0" y="10" class="pixel-name" />
+          <rect width="10" height="10" x="0" y="20" class="pixel-name" />
+          <rect width="10" height="10" x="0" y="30" class="pixel-name" />
+          <rect width="10" height="10" x="10" y="30" class="pixel-name" />
+          <rect width="10" height="10" x="20" y="30" class="pixel-name" />
+          <rect width="10" height="10" x="20" y="20" class="pixel-name" />
+          <rect width="10" height="10" x="20" y="10" class="pixel-name" />
+          <rect width="10" height="10" x="20" y="0" class="pixel-name" /></g>
+      <g class="letter-C" transform="translate(145, 25) scale(1.2)">
+          <rect width="10" height="10" x="10" y="0" class="pixel-name" />
+          <rect width="10" height="10" x="0" y="10" class="pixel-name" />
+          <rect width="10" height="10" x="0" y="20" class="pixel-name" />
+          <rect width="10" height="10" x="10" y="30" class="pixel-name" />
+          <rect width="10" height="10" x="20" y="0" class="pixel-name" />
+          <rect width="10" height="10" x="20" y="30" class="pixel-name" /></g>
+      <g class="letter-A" transform="translate(200, 25) scale(1.2)">
+          <rect width="10" height="10" x="10" y="0" class="pixel-name" />
+          <rect width="10" height="10" x="0" y="10" class="pixel-name" />
+          <rect width="10" height="10" x="20" y="10" class="pixel-name" />
+          <rect width="10" height="10" x="0" y="20" class="pixel-name" />
+          <rect width="10" height="10" x="10" y="20" class="pixel-name" />
+          <rect width="10" height="10" x="20" y="20" class="pixel-name" />
+          <rect width="10" height="10" x="0" y="30" class="pixel-name" />
+          <rect width="10" height="10" x="20" y="30" class="pixel-name" /></g>
+      <g class="letter-S" transform="translate(255, 25) scale(1.2)">
+          <rect width="10" height="10" x="10" y="0" class="pixel-name" />
+          <rect width="10" height="10" x="20" y="0" class="pixel-name" />
+          <rect width="10" height="10" x="0" y="10" class="pixel-name" />
+          <rect width="10" height="10" x="10" y="15" class="pixel-name" />
+          <rect width="10" height="10" x="20" y="20" class="pixel-name" />
+          <rect width="10" height="10" x="0" y="30" class="pixel-name" />
+          <rect width="10" height="10" x="10" y="30" class="pixel-name" /></g></g>
+<g class="pacman-container">
+    <g transform="translate(0, 18) scale(1.1)">
+      <path class="mouth-top" d="M25,25 L50,25 A25,25 0 0,0 0,25 Z" />
+      <path class="mouth-bottom" d="M25,25 L50,25 A25,25 0 0,1 0,25 Z" /></g></g>
+<rect width="400" height="2" x="0" y="90" fill="#22c55e" /></svg>
