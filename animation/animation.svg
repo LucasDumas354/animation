@@ -27,15 +27,16 @@
         fill: #ff0; 
         animation: mouth-eat-bottom 0.3s steps(2) infinite; 
         transform-origin: 25px 25px;}
-    /* Sincronização: Cada letra some no tempo que o Pac-Man passa */
-    /* Como o movimento leva 5s para 400px, calculamos o delay por posição */
-    .letter-L { animation: disappear 0.1s forwards; animation-delay: 0.8s; }
-    .letter-U { animation: disappear 0.1s forwards; animation-delay: 1.3s; }
-    .letter-C { animation: disappear 0.1s forwards; animation-delay: 1.8s; }
-    .letter-A { animation: disappear 0.1s forwards; animation-delay: 2.3s; }
-    .letter-S { animation: disappear 0.1s forwards; animation-delay: 2.8s; }
-    /* Faz o nome resetar junto com o Pac-Man (opcional, para o loop) */
-    .all-letters { animation: disappear 5s infinite; }
+        @keyframes hide-L { 0%, 15% { opacity: 1; } 16%, 100% { opacity: 0; } }
+        @keyframes hide-U { 0%, 25% { opacity: 1; } 26%, 100% { opacity: 0; } }
+        @keyframes hide-C { 0%, 35% { opacity: 1; } 36%, 100% { opacity: 0; } }
+        @keyframes hide-A { 0%, 45% { opacity: 1; } 46%, 100% { opacity: 0; } }
+        @keyframes hide-S { 0%, 55% { opacity: 1; } 56%, 100% { opacity: 0; } }
+        .letter-L { animation: hide-L 5s infinite; }
+        .letter-U { animation: hide-U 5s infinite; }
+        .letter-C { animation: hide-C 5s infinite; }
+        .letter-A { animation: hide-A 5s infinite; }
+        .letter-S { animation: hide-S 5s infinite; }
   </style>
   <g class="all-letters">
       <g class="letter-L" transform="translate(40, 25) scale(1.2)">
